@@ -8,11 +8,11 @@ authors = [
     { name = "easySSP Dev Team", email = "easyssp-dev@exxcellent.de" }
 ]
 license = { text = "MIT" }
+license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.11"
 urls = { "Homepage" = "https://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }
 dependencies = []
-license-files = ["LICENSE"]
 classifiers = [
     "Programming Language :: Python :: 3.11",
     "License :: OSI Approved :: MIT License",

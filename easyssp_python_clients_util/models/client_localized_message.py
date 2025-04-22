@@ -18,21 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from easy_ssp_python_clients_util.models.client_localized_message import ClientLocalizedMessage
+from easyssp_python_clients_util.models.localized_message_key import LocalizedMessageKey
 from typing import Optional, Set
 from typing_extensions import Self
 
-class LocalizedErrorMessage(BaseModel):
+class ClientLocalizedMessage(BaseModel):
     """
-    LocalizedErrorMessage
+    ClientLocalizedMessage
     """ # noqa: E501
-    code: Optional[StrictInt] = None
-    message: Optional[StrictStr] = None
-    details: Optional[StrictStr] = None
-    localized_message: Optional[ClientLocalizedMessage] = Field(default=None, alias="localizedMessage")
-    __properties: ClassVar[List[str]] = ["code", "message", "details", "localizedMessage"]
+    key: Optional[LocalizedMessageKey] = None
+    # MANUAL MODIFICATION
+    # type changes from Optional[List[Dict[str, Any]]]
+    values: Optional[List[Any]] = None
+    __properties: ClassVar[List[str]] = ["key", "values"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +51,7 @@ class LocalizedErrorMessage(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of LocalizedErrorMessage from a JSON string"""
+        """Create an instance of ClientLocalizedMessage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +72,14 @@ class LocalizedErrorMessage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of localized_message
-        if self.localized_message:
-            _dict['localizedMessage'] = self.localized_message.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of key
+        if self.key:
+            _dict['key'] = self.key.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of LocalizedErrorMessage from a dict"""
+        """Create an instance of ClientLocalizedMessage from a dict"""
         if obj is None:
             return None
 
@@ -87,10 +87,8 @@ class LocalizedErrorMessage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "message": obj.get("message"),
-            "details": obj.get("details"),
-            "localizedMessage": ClientLocalizedMessage.from_dict(obj["localizedMessage"]) if obj.get("localizedMessage") is not None else None
+            "key": LocalizedMessageKey.from_dict(obj["key"]) if obj.get("key") is not None else None,
+            "values": obj.get("values")
         })
         return _obj
 

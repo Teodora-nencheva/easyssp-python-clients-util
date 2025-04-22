@@ -10,7 +10,7 @@
 ## Example
 
 ```python
-from easy_ssp_python_clients_util.models import LocalizedMessageKey
+from easyssp_python_clients_util.models import LocalizedMessageKey
 
 localized_message_key = LocalizedMessageKey(defaultMessage='Model not found.')
 print(localized_message_key)

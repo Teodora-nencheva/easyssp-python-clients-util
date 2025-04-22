@@ -26,11 +26,11 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union, Any
 from pydantic import SecretStr
 
-from easy_ssp_python_clients_util import models
-from easy_ssp_python_clients_util.client.configuration import Configuration
-from easy_ssp_python_clients_util.client.api_response import ApiResponse, T as ApiResponseT
-from easy_ssp_python_clients_util.client import rest
-from easy_ssp_python_clients_util.client.exceptions import (
+from easyssp_python_clients_util import models
+from easyssp_python_clients_util.client.configuration import Configuration
+from easyssp_python_clients_util.client.api_response import ApiResponse, T as ApiResponseT
+from easyssp_python_clients_util.client import rest
+from easyssp_python_clients_util.client.exceptions import (
     ApiValueError,
     ApiException
 )

@@ -17,7 +17,7 @@ import ssl
 
 import urllib3
 
-from easy_ssp_python_clients_util.client.exceptions import ApiException
+from easyssp_python_clients_util.client.exceptions import ApiException
 
 SUPPORTED_SOCKS_PROXIES = {"socks5", "socks5h", "socks4", "socks4a"}
 RESTResponseType = urllib3.HTTPResponse

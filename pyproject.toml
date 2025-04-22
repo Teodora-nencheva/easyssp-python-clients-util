@@ -1,9 +1,9 @@
 [project]
-name = "easy-ssp-python-clients-util"
+name = "easyssp-utils"
 version = "1.0.0"
-description = "Easy-SSP Python Clients Util"
+description = "easySSP Python Clients Util"
 repository = "https://github.com/exxcellent/easy-ssp-python-clients-util"
-keywords = ["easySSP"]
+keywords = ["easySSP", "python", "client", "utils"]
 authors = [
     { name = "easySSP Dev Team", email = "easyssp-dev@exxcellent.de" }
 ]
@@ -12,7 +12,11 @@ readme = "README.md"
 requires-python = ">=3.11"
 urls = { }
 dependencies = []
-classifiers = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: MIT License",
+    "Operating System :: OS Independent",
+]
 
 [project.optional-dependencies]
 dev = [
@@ -31,20 +35,20 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "easy_ssp_python_clients_util/*",
+    "easyssp_python_clients_util/*",
 ]
 exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
 include = [
-    "easy_ssp_python_clients_util/*",
+    "easyssp_python_clients_util/*",
 ]
 exclude = [
 ]
 
 [tool.mypy]
-files = ['easy_ssp_python_clients_util']
+files = ['easyssp_python_clients_util']
 disallow_untyped_defs = true
 disallow_any_unimported = true
 no_implicit_optional = true

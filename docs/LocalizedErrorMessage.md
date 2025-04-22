@@ -13,9 +13,9 @@
 ## Example
 
 ```python
-from easy_ssp_python_clients_util.models.localized_error_message import LocalizedErrorMessage
-from easy_ssp_python_clients_util.models import LocalizedMessageKey
-from easy_ssp_python_clients_util.models.client_localized_message import ClientLocalizedMessage
+from easyssp_python_clients_util.models.localized_error_message import LocalizedErrorMessage
+from easyssp_python_clients_util.models import LocalizedMessageKey
+from easyssp_python_clients_util.models.client_localized_message import ClientLocalizedMessage
 
 localized_message_key = LocalizedMessageKey(defaultMessage='Model not found.')
 client_localized_message = ClientLocalizedMessage(key=localized_message_key,

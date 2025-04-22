@@ -1,1 +1,1 @@
-# EasySSP Python Clients Util
+# easySSP Python Clients Util

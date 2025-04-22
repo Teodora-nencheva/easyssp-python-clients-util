@@ -10,7 +10,7 @@ authors = [
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.11"
-urls = { "Homepage" = "htttps://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }
+urls = { "Homepage" = "https://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }
 dependencies = []
 license-files = ["LICENSE"]
 classifiers = [

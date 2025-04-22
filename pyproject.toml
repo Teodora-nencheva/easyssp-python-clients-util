@@ -7,7 +7,7 @@ keywords = ["easySSP", "python", "client", "utils"]
 authors = [
     { name = "easySSP Dev Team", email = "easyssp-dev@exxcellent.de" }
 ]
-license = "MIT"
+license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.11"
 urls = { "Homepage" = "https://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }

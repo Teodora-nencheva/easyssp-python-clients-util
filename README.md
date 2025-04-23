@@ -49,3 +49,6 @@ pip install -r requirements.txt
 
 ## 🤝 Contributing
 This module is maintained as part of the easySSP ecosystem. If you find issues or want to suggest improvements, please open an issue or submit a pull request.
+
+## 📄 License
+This project is licensed under the MIT License.

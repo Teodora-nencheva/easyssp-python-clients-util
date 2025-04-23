@@ -1,1 +1,51 @@
-# easySSP Python Clients Util
+# 🔧 easySSP Python Clients Util
+
+This module provides shared utilities for the Python clients of the easySSP APIs. It contains essential functionality such as HTTP request handling, custom exceptions, logging support, and reusable helpers that streamline the integration with the easySSP APIs.
+
+## 📦 Features
+
+- ✅ Centralized request handling with retry and error management
+- 🚨 Custom exception classes for clear and consistent error reporting
+- 🧰 Helper utilities to support both API clients
+- 📋 Designed for internal use by the easySSP Python clients
+
+## 📁 Module Structure
+
+```bash
+easyssp_python_cients_util/
+├── __init__.py
+├── client/
+│   ├── __init__.py
+│   ├── api_client.py         # Generic API client for OpenAPI client library builds
+│   ├── api_response.py       # API response object
+│   ├── configuration.py      # Settings of the API client
+│   ├── exceptions.py         # Exceptions for the API client
+│   └── rest.py               # Performing the HTTP requests
+│
+├── models/
+│   ├── __init__.py
+│   ├── client_localized_message.py       
+│   ├── error_message.py        
+│   ├── localized_error_message.py        
+│   └── localized_message_key.py          
+```
+
+## 📚 Documentation
+Each utility module is documented inline with docstrings. For detailed usage and integration patterns, refer to the respective client documentation.
+
+### Documentation for models
+ - [ClientLocalizedMessage](/docs/ClientLocalizedMessage.md)
+ - [ErrorMessage](/docs/ErrorMessage.md)
+ - [LocalizedErrorMessage](/docs/LocalizedErrorMessage.md)
+ - [LocalizedMessageKey](/docs/LocalizedMessageKey.md)
+
+## 🛠️ Requirements
+Python 3.11+
+
+Install dependencies with:
+```bash
+pip install -r requirements.txt
+```
+
+## 🤝 Contributing
+This module is maintained as part of the easySSP ecosystem. If you find issues or want to suggest improvements, please open an issue or submit a pull request.

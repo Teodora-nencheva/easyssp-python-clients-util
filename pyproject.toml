@@ -1,7 +1,7 @@
 [project]
 name = "easyssp-utils"
-version = "0.0.5"
-description = "easySSP Python Clients Util"
+version = "0.0.6"
+description = "A collection of utility functions and modules for interacting with the easySSP Integration API. This package provides request handling, error management, and other shared components for Python clients. Simplifies the process of integrating with the Integration API and handling common tasks."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]
 authors = [

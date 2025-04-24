@@ -12,16 +12,38 @@ license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.11"
 urls = { "Homepage" = "https://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }
-dependencies = []
+dependencies = [
+    "annotated-types>=0.7.0",
+    "build>=1.2.2.post1",
+    "colorama>=0.4.6",
+    "hatchling>=1.27.0",
+    "mypy>=1.15.0",
+    "mypy-extensions>=1.1.0",
+    "packaging>=25.0",
+    "pathspec>=0.12.1",
+    "pluggy>=1.5.0",
+    "pydantic>=2.11.3",
+    "pydantic-core>=2.33.1",
+    "pyproject-hooks>=1.2.0",
+    "python-dateutil>=2.9.0.post0",
+    "pytz>=2025.2",
+    "ruff>=0.11.6",
+    "six>=1.17.0",
+    "trove-classifiers>=2025.4.11.15",
+    "types-python-dateutil>=2.9.0.20241206",
+    "typing-extensions>=4.13.2",
+    "typing-inspection>=0.4.0",
+    "urllib3>=2.4.0",
+]
 classifiers = [
     "Programming Language :: Python :: 3.11",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "mypy>=1.13.0",
+    "uv>=0.6.16"
 ]
 lint = [
     "ruff>=0.11.0",
@@ -50,11 +72,9 @@ exclude = [
 
 [tool.mypy]
 files = ['easyssp_python_clients_util']
-disallow_untyped_defs = true
 disallow_any_unimported = true
 no_implicit_optional = true
 check_untyped_defs = true
-warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
 
@@ -120,6 +140,7 @@ ignore = [
     "SIM108", # "Use ternary operator ...". Ternary is harmful for readability in some cases.
     "TRY003", # "Avoid specifying long messages outside the exception class"
     "PLR0913", # Many langchain calls need more than 5 args, so this is impractical
+    "PLR2004", # Magic numbers
     "INP001", # not really an issue, __int__ is old news anyway
     "EXE001", # code is executed on AWS, we don't need the exec bit
     "ERA001", # comments are okay
@@ -131,6 +152,16 @@ ignore = [
     "ARG001", # allow unaccessed args, we're still in dev phase
     "G004", # allow logging with f strings
     "ISC001",
+    "ISC002", # Implicitly concatenated string literals over multiple lines
+    "B904", # in catch block raise exception with 'from err'
+    "N818", # exception names should have Error suffix
+    "PLW2901", # `for` loop variable overwritten by assignment target
+    "BLE001", # Do not catch blind exception: `Exception`
+    "PLR0912", # Too many branches
+    "ARG002", # Unused method argument
+    "PLR0911", # Too many return statements
+    "C901", # too complex method
+    "PLR0915" # Too many statements
 ]
 
 # Enable isort-compatible import formatting

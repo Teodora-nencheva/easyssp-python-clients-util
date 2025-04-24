@@ -1,6 +1,5 @@
-# coding: utf-8
 
-# flake8: noqa
+__all__ = ["ClientLocalizedMessage", "ErrorMessage", "LocalizedErrorMessage", "LocalizedMessageKey"]
 
 # import models into model package
 from easyssp_python_clients_util.models.client_localized_message import ClientLocalizedMessage

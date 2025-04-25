@@ -147,7 +147,8 @@ ignore = [
     "ARG002", # Unused method argument
     "PLR0911", # Too many return statements
     "C901", # too complex method
-    "PLR0915" # Too many statements
+    "PLR0915", # Too many statements
+    "ARG004", # Unused static method argument
 ]
 
 # Enable isort-compatible import formatting

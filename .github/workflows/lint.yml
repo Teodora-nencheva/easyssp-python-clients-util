@@ -23,14 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install uv
           uv sync
-          uv pip show ruff
 
       - name: Run Ruff
         run: |
-          pwd
-          ls -la
-          python -m ruff check
+          uv run --frozen python -m ruff check
 
       - name: Run Mypy
         run: |
-          python -m mypy
+          uv run --frozen python -m mypy

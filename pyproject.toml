@@ -1,6 +1,6 @@
 [project]
 name = "easyssp-utils"
-version = "0.0.8"
+version = "0.0.9"
 description = "A collection of utility functions and modules for interacting with the easySSP Integration API. This package provides request handling, error management, and other shared components for Python clients. Simplifies the process of integrating with the Integration API and handling common tasks."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]
@@ -13,26 +13,12 @@ readme = "README.md"
 requires-python = ">=3.11"
 urls = { "Homepage" = "https://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }
 dependencies = [
-    "annotated-types>=0.7.0",
-    "build>=1.2.2.post1",
-    "colorama>=0.4.6",
     "hatchling>=1.27.0",
     "mypy>=1.15.0",
-    "mypy-extensions>=1.1.0",
-    "packaging>=25.0",
-    "pathspec>=0.12.1",
-    "pluggy>=1.5.0",
     "pydantic>=2.11.3",
-    "pydantic-core>=2.33.1",
-    "pyproject-hooks>=1.2.0",
     "python-dateutil>=2.9.0.post0",
-    "pytz>=2025.2",
-    "ruff>=0.11.6",
-    "six>=1.17.0",
-    "trove-classifiers>=2025.4.11.15",
+    "ruff>=0.11.7",
     "types-python-dateutil>=2.9.0.20241206",
-    "typing-extensions>=4.13.2",
-    "typing-inspection>=0.4.0",
     "urllib3>=2.4.0",
 ]
 classifiers = [

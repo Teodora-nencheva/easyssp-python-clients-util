@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install uv
           uv sync
-          pip show ruff
+          uv pip show ruff
 
       - name: Run Ruff
         run: |

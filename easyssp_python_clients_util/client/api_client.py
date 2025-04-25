@@ -1,7 +1,7 @@
 """
     easySSP Simulation API
 
-    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured  maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware  settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally the user can view and manage the simulations started by the Simulation-API in a dedicated UI at  [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
+    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minute are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally, the user can view and manage the simulations started by the Simulation-API in a dedicated UI at [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
 
     The version of the OpenAPI document: 1.0.0
     Contact: easy-ssp@exxcellent.de
@@ -36,8 +36,7 @@ RequestSerialized = tuple[str, str, dict[str, str], str | None, list[str]]
 class ApiClient:
     """Generic API client for OpenAPI client library builds.
 
-    OpenAPI generic API client. This client handles the client-
-    server communication, and is invariant across implementations. Specifics of
+    OpenAPI generic API client. This client handles the client-server communication and is invariant across implementations. Specifics of
     the methods and models for each application are generated from the OpenAPI
     templates.
 
@@ -80,7 +79,7 @@ class ApiClient:
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
-        # Set default User-Agent.
+        # Set the default User-Agent.
         self.user_agent = "Easy-SSP Simulation Python Client"
         self.client_side_validation = configuration.client_side_validation
 
@@ -106,9 +105,9 @@ class ApiClient:
 
     @classmethod
     def get_default(cls):
-        """Return new instance of ApiClient.
+        """Return a new instance of ApiClient.
 
-        This method returns newly created, based on default constructor,
+        This method returns a newly created, based on a default constructor,
         object of ApiClient class or returns a copy of default
         ApiClient.
 
@@ -144,6 +143,7 @@ class ApiClient:
     ) -> RequestSerialized:
 
         """Builds the HTTP request params needed by the request.
+        :param _host:
         :param method: Method to call.
         :param resource_path: Path to method endpoint.
         :param path_params: Path parameters in the url.
@@ -158,7 +158,7 @@ class ApiClient:
             for `multipart/form-data`.
         :param collection_formats: dict of collection formats for path, query,
             header, and post parameters.
-        :param _request_auth: set to override the auth_settings for an a single
+        :param _request_auth: set to override the auth_settings for a single
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :return: tuple of form (path, http_method, query_params, header_params,
@@ -326,11 +326,11 @@ class ApiClient:
         If obj is SecretStr, return obj.get_secret_value()
         If obj is str, int, long, float, bool, return directly.
         If obj is datetime.datetime, datetime.date
-            convert to string in iso8601 format.
+             converts to string in iso8601 format.
         If obj is decimal.Decimal return string representation.
-        If obj is list, sanitize each element in the list.
+        If obj is a list, sanitize each element in the list.
         If obj is dict, return the dict.
-        If obj is OpenAPI model, return the properties dict.
+        If obj is an OpenAPI model, return the property dict.
 
         :param obj: The data to serialize.
         :return: The serialized form of data.
@@ -361,7 +361,7 @@ class ApiClient:
         # Convert model obj to dict except
         # attributes `openapi_types`, `attribute_map`
         # and attributes which value is not None.
-        # Convert attribute name to json key in
+        # Convert attribute name to JSON key in
         # model definition for request.
         elif hasattr(obj, "to_dict") and callable(obj.to_dict):
             obj_dict = obj.to_dict()
@@ -380,7 +380,7 @@ class ApiClient:
         :param custom_models: models from the client
         :param response_text: RESTResponse object to be deserialized.
         :param response_type: class literal for
-            deserialized object, or string of class name.
+            a deserialized object, or string of class name.
         :param content_type: content type of response.
 
         :return: deserialized object.
@@ -389,7 +389,7 @@ class ApiClient:
         # fetch data from response object
         if content_type is None:
             try:
-                data = json.loads(response_text)
+                json.loads(response_text)
             except ValueError:
                 data = response_text
         elif re.match(r"^application/(json|[\w!#$&.+-^_]+\+json)\s*(;|$)", content_type, re.IGNORECASE):
@@ -397,7 +397,7 @@ class ApiClient:
                 data = ""
             else:
                 data = json.loads(response_text)
-        elif re.match(r"^text\/[a-z.+-]+\s*(;|$)", content_type, re.IGNORECASE):
+        elif re.match(r"^text/[a-z.+-]+\s*(;|$)", content_type, re.IGNORECASE):
             data = response_text
         else:
             raise ApiException(
@@ -456,12 +456,13 @@ class ApiClient:
             return self.__deserialize_enum(data, klass)
         return self.__deserialize_model(data, klass)
 
-    def parameters_to_tuples(self, params, collection_formats):
-        """Get parameters as list of tuples, formatting collections.
+    @staticmethod
+    def parameters_to_tuples(params, collection_formats):
+        """Get parameters as a list of tuples, formatting collections.
 
         :param params: Parameters as dict or list of two-tuples
         :param dict collection_formats: Parameter collection formats
-        :return: Parameters as list of tuples, collections formatted
+        :return: Parameters as a list of tuples, collections formatted
         """
         new_params: list[tuple[str, str | tuple]] = []
         if collection_formats is None:
@@ -492,12 +493,13 @@ class ApiClient:
                 new_params.append((k, v))
         return new_params
 
-    def parameters_to_url_query(self, params, collection_formats):
-        """Get parameters as list of tuples, formatting collections.
+    @staticmethod
+    def parameters_to_url_query(params, collection_formats):
+        """Get parameters as a list of tuples, formatting collections.
 
         :param params: Parameters as dict or list of two-tuples
         :param dict collection_formats: Parameter collection formats
-        :return: URL query string (e.g. a=Hello%20World&b=123)
+        :return: URL query string (e.g., a=Hello%20World&b=123)
         """
         new_params: list[tuple[str, str]] = []
         if collection_formats is None:
@@ -566,11 +568,12 @@ class ApiClient:
             )
         return params
 
-    def select_header_accept(self, accepts: list[str]) -> str | None:
-        """Returns `Accept` based on an array of accepts provided.
+    @staticmethod
+    def select_header_accept(accepts: list[str]) -> str | None:
+        """Returns `Accept` based on an array of acceptances provided.
 
         :param accepts: List of headers.
-        :return: Accept (e.g. application/json).
+        :return: Accept (e.g., application/json).
         """
         if not accepts:
             return None
@@ -581,11 +584,12 @@ class ApiClient:
 
         return accepts[0]
 
-    def select_header_content_type(self, content_types):
+    @staticmethod
+    def select_header_content_type(content_types):
         """Returns `Content-Type` based on an array of content_types provided.
 
         :param content_types: List of content-types.
-        :return: Content-Type (e.g. application/json).
+        :return: Content-Type (e.g., application/json).
         """
         if not content_types:
             return None
@@ -606,14 +610,14 @@ class ApiClient:
             body,
             request_auth=None
     ) -> None:
-        """Updates header and query params based on authentication setting.
+        """Update header and query params based on authentication setting.
 
         :param headers: Header parameters dict to be updated.
-        :param queries: Query parameters tuple list to be updated.
+        :param queries: Query a parameters tuple list to be updated.
         :param auth_settings: Authentication setting identifiers list.
         :param resource_path: A string representation of the HTTP request resource path.
         :param method: A string representation of the HTTP request method.
-        :param body: A object representing the body of the HTTP request.
+        :param body: An object representing the body of the HTTP request.
         The object type is the return value of sanitize_for_serialization().
         :param request_auth: if set, the provided settings will
                              override the token in the configuration.
@@ -643,8 +647,8 @@ class ApiClient:
                         auth_setting
                     )
 
+    @staticmethod
     def _apply_auth_params(
-            self,
             headers,
             queries,
             resource_path,
@@ -655,7 +659,7 @@ class ApiClient:
         """Updates the request parameters based on a single auth_setting
 
         :param headers: Header parameters dict to be updated.
-        :param queries: Query parameters tuple list to be updated.
+        :param queries: Query a parameters tuple list to be updated.
         :resource_path: A string representation of the HTTP request resource path.
         :method: A string representation of the HTTP request method.
         :body: A object representing the body of the HTTP request.
@@ -680,8 +684,8 @@ class ApiClient:
         Saves response body into a file in a temporary folder,
         using the filename from the `Content-Disposition` header if provided.
 
-        handle file downloading
-        save response body into a tmp file and return the instance
+        handle a file downloading
+        save the response body into a tmp file and return the instance
 
         :param response:  RESTResponse.
         :return: file path.
@@ -705,8 +709,9 @@ class ApiClient:
 
         return path
 
-    def __deserialize_primitive(self, data, klass):
-        """Deserializes string to primitive type.
+    @staticmethod
+    def __deserialize_primitive(data, klass):
+        """Deserializes string to a primitive type.
 
         :param data: str.
         :param klass: class literal.
@@ -720,14 +725,16 @@ class ApiClient:
         except TypeError:
             return data
 
-    def __deserialize_object(self, value):
+    @staticmethod
+    def __deserialize_object(value):
         """Return an original value.
 
         :return: object.
         """
         return value
 
-    def __deserialize_date(self, string):
+    @staticmethod
+    def __deserialize_date(string):
         """Deserializes string to date.
 
         :param string: str.
@@ -743,7 +750,8 @@ class ApiClient:
                 reason=f"Failed to parse `{string}` as date object"
             )
 
-    def __deserialize_datetime(self, string):
+    @staticmethod
+    def __deserialize_datetime(string):
         """Deserializes string to datetime.
 
         The string should be in iso8601 datetime format.
@@ -764,7 +772,8 @@ class ApiClient:
                 )
             )
 
-    def __deserialize_enum(self, data, klass):
+    @staticmethod
+    def __deserialize_enum(data, klass):
         """Deserializes primitive type to enum.
 
         :param data: primitive type.
@@ -782,7 +791,8 @@ class ApiClient:
                 )
             )
 
-    def __deserialize_model(self, data, klass):
+    @staticmethod
+    def __deserialize_model(data, klass):
         """Deserializes list or dict to model.
 
         :param data: dict, list.

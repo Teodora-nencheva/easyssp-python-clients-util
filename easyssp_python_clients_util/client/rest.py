@@ -1,7 +1,7 @@
 """
     easySSP Simulation API
 
-    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured  maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware  settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally the user can view and manage the simulations started by the Simulation-API in a dedicated UI at  [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
+    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally, the user can view and manage the simulations started by the Simulation-API in a dedicated UI at [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
 
     The version of the OpenAPI document: 1.0.0
     Contact: easy-ssp@exxcellent.de
@@ -54,7 +54,7 @@ class RESTResponse(io.IOBase):
 class RESTClientObject:
 
     def __init__(self, configuration) -> None:
-        # urllib3.PoolManager will pass all kw parameters to connectionpool
+        # urllib3.PoolManager will pass all kw parameters to connection
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680
         # Custom SSL certificates and client certificates: http://urllib3.readthedocs.io/en/latest/advanced-usage.html
@@ -119,12 +119,12 @@ class RESTClientObject:
         :param method: http request method
         :param url: http request url
         :param headers: http request headers
-        :param body: request json body, for `application/json`
-        :param post_params: request post parameters,
+        :param body: request JSON body, for `application/json`
+        :param post_params: request post-parameters,
                             `application/x-www-form-urlencoded`
                             and `multipart/form-data`
         :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
+                                  number is provided, it will be a total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
         """
@@ -164,7 +164,7 @@ class RESTClientObject:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
             if method in ["POST", "PUT", "PATCH", "OPTIONS", "DELETE"]:
 
-                # no content type provided or payload is json
+                # no content type provided or payload is JSON
                 content_type = headers.get("Content-Type")
                 if (
                         not content_type
@@ -208,7 +208,7 @@ class RESTClientObject:
                         preload_content=False
                     )
                 # Pass a `string` parameter directly in the body to support
-                # other content types than JSON when `body` argument is
+                # other content types than JSON when the ` body ` argument is
                 # provided in serialized form.
                 elif isinstance(body, str | bytes):
                     r = self.pool_manager.request(

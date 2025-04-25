@@ -2,7 +2,7 @@
 """
     easySSP Simulation API
 
-    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured  maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware  settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally the user can view and manage the simulations started by the Simulation-API in a dedicated UI at  [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
+    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally, the user can view and manage the simulations started by the Simulation-API in a dedicated UI at [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
 
     The version of the OpenAPI document: 1.0.0
     Contact: easy-ssp@exxcellent.de
@@ -61,7 +61,7 @@ class ClientLocalizedMessage(BaseModel):
         `self.model_dump(by_alias=True)`:
 
         * `None` is only added to the output dict for nullable fields that
-          were set at model initialization. Other fields with value `None`
+          were set at model initialization. Other fields with the value `None`
           are ignored.
         """
         excluded_fields: set[str] = set({})

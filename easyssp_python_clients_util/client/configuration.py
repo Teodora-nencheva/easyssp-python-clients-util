@@ -2,7 +2,7 @@
 """
     easySSP Simulation API
 
-    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured  maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware  settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally the user can view and manage the simulations started by the Simulation-API in a dedicated UI at  [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
+    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally, the user can view and manage the simulations started by the Simulation-API in a dedicated UI at [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
 
     The version of the OpenAPI document: 1.0.0
     Contact: easy-ssp@exxcellent.de
@@ -125,14 +125,14 @@ class Configuration:
     """This class contains various settings of the API client.
 
     :param host: Base url.
-    :param ignore_operation_servers
+    param ignore_operation_servers
       Boolean to ignore operation servers for the API client.
       Config will use `host` as the base url regardless of the operation servers.
     :param api_key: Dict to store API key(s).
       Each entry in the dict specifies an API key.
       The dict key is the name of the security scheme in the OAS specification.
       The dict value is the API key secret.
-    :param api_key_prefix: Dict to store API prefix (e.g. Bearer).
+    :param api_key_prefix: Dict to store API prefix (e.g., Bearer).
       The dict key is the name of the security scheme in the OAS specification.
       The dict value is an API key prefix when generating the auth data.
     :param username: Username for HTTP basic authentication.
@@ -140,12 +140,12 @@ class Configuration:
     :param access_token: Access token.
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
-      templated server configuration. The validation of enums is performed for
+       a templated server configuration. The validation of enums is performed for
       variables with defined enum values before.
     :param server_operation_index: Mapping from operation ID to an index to server
       configuration.
     :param server_operation_variables: Mapping from operation ID to a mapping with
-      string values to replace variables in templated server configuration.
+      string values to replace variables in the templated server configuration.
       The validation of enums is performed for variables with defined enum
       values before.
     :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
@@ -225,7 +225,7 @@ class Configuration:
         """
         self.logger["package_logger"] = logging.getLogger("client")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
-        self.logger_format = "%(asctime)s %(levelname)s %(message)s"
+        self.logger_format = "%(asctime)s %(levelness)s %(message)s"
         """Log format
         """
         self.logger_stream_handler = None
@@ -326,8 +326,8 @@ class Configuration:
     def set_default(cls, default: Self | None) -> None:
         """Set default instance of configuration.
 
-        It stores default configuration, which can be
-        returned by get_default_copy method.
+        It stores the default configuration, which can be
+        returned by the get_default_copy method.
 
         :param default: object of Configuration
         """
@@ -347,8 +347,8 @@ class Configuration:
     def get_default(cls) -> Self:
         """Return the default configuration.
 
-        This method returns newly created, based on default constructor,
-        object of Configuration class or returns a copy of default
+        This method returns newly created, based on the default constructor,
+        object of Configuration class or returns a copy of the default
         configuration.
 
         :return: The configuration object.
@@ -361,8 +361,8 @@ class Configuration:
     def logger_file(self) -> str | None:
         """The logger file.
 
-        If the logger_file is None, then add stream handler and remove file
-        handler. Otherwise, add file handler and remove stream handler.
+        If the logger_file is None, then add a stream handler and remove the file
+        handler. Otherwise, add a file handler and remove the stream handler.
 
         :param value: The logger_file path.
         :type: str
@@ -373,16 +373,16 @@ class Configuration:
     def logger_file(self, value: str | None) -> None:
         """The logger file.
 
-        If the logger_file is None, then add stream handler and remove file
-        handler. Otherwise, add file handler and remove stream handler.
+        If the logger_file is None, then add a stream handler and remove the file
+        handler. Otherwise, add a file handler and remove the stream handler.
 
         :param value: The logger_file path.
         :type: str
         """
         self.__logger_file = value
         if self.__logger_file:
-            # If set logging file,
-            # then add file handler and remove stream handler.
+            # If set a logging file,
+            # then add a file handler and remove stream handler.
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
             self.logger_file_handler.setFormatter(self.logger_formatter)
             for _, logger in self.logger.items():
@@ -409,14 +409,14 @@ class Configuration:
             # if debug status is True, turn on debug logging
             for _, logger in self.logger.items():
                 logger.setLevel(logging.DEBUG)
-            # turn on httplib debug
+            # turn on http lib debug
             httplib.HTTPConnection.debuglevel = 1
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
             for _, logger in self.logger.items():
                 logger.setLevel(logging.WARNING)
-            # turn off httplib debug
+            # turn off http lib debug
             httplib.HTTPConnection.debuglevel = 0
 
     @property
@@ -443,7 +443,7 @@ class Configuration:
         self.logger_formatter = logging.Formatter(self.__logger_format)
 
     def get_api_key_with_prefix(self, identifier: str, alias: str | None=None) -> str | None:
-        """Gets API key (with prefix if set).
+        """Gets an API key (with prefix if set).
 
         :param identifier: The identifier of apiKey.
         :param alias: The alternative identifier of apiKey.
@@ -476,7 +476,7 @@ class Configuration:
         ).get("authorization")
 
     def auth_settings(self)-> AuthSettings:
-        """Gets Auth Settings dict for api client.
+        """Gets Auth Settings dict for an api client.
 
         :return: The Auth Settings information dict.
         """
@@ -491,7 +491,8 @@ class Configuration:
             }
         return auth
 
-    def to_debug_report(self) -> str:
+    @staticmethod
+    def to_debug_report() -> str:
         """Gets the essential information for debugging.
 
         :return: The report for debugging.
@@ -502,7 +503,8 @@ class Configuration:
                "Version of the API: 1.0.0\n"\
                "SDK Package Version: 1.0.0"
 
-    def get_host_settings(self) -> list[HostSetting]:
+    @staticmethod
+    def get_host_settings() -> list[HostSetting]:
         """Gets an array of host settings
 
         :return: An array of host settings
@@ -565,6 +567,6 @@ class Configuration:
 
     @host.setter
     def host(self, value: str) -> None:
-        """Fix base path."""
+        """Fix a base path."""
         self._base_path = value
         self.server_index = None

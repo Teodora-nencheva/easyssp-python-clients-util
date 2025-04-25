@@ -1,6 +1,6 @@
 [project]
 name = "easyssp-utils"
-version = "0.0.10"
+version = "0.0.11"
 description = "A collection of utility functions and modules for interacting with the easySSP Integration API. This package provides request handling, error management, and other shared components for Python clients. Simplifies the process of integrating with the Integration API and handling common tasks."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]
@@ -13,11 +13,8 @@ readme = "README.md"
 requires-python = ">=3.11"
 urls = { "Homepage" = "https://www.easy-ssp.com", "Source" = "https://github.com/exxcellent/easyssp-python-clients-util", "Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases" }
 dependencies = [
-    "hatchling>=1.27.0",
-    "mypy>=1.15.0",
     "pydantic>=2.11.3",
     "python-dateutil>=2.9.0.post0",
-    "ruff>=0.11.7",
     "types-python-dateutil>=2.9.0.20241206",
     "urllib3>=2.4.0",
 ]
@@ -28,15 +25,13 @@ classifiers = [
 ]
 
 [dependency-groups]
-dev = [
-    "uv>=0.6.16"
-]
 lint = [
+    "mypy>=1.15.0",
     "ruff>=0.11.0",
 ]
 
 [tool.uv]
-default-groups = ["dev", "lint"]
+default-groups = ["lint"]
 
 [build-system]
 requires = ["hatchling"]
@@ -135,11 +130,11 @@ ignore = [
     "FBT001", # come on now, booleans aren't allowed in functions as positional args?
     "FBT002", # more of the same
     "FBT003", # more of the same
-    "ARG001", # allow unaccessed args, we're still in dev phase
+    "ARG001", # allow unaccessed args, we're still in the dev phase
     "G004", # allow logging with f strings
     "ISC001",
     "ISC002", # Implicitly concatenated string literals over multiple lines
-    "B904", # in catch block raise exception with 'from err'
+    "B904", # in catch block raise an exception with 'from err'
     "N818", # exception names should have Error suffix
     "PLW2901", # `for` loop variable overwritten by assignment target
     "BLE001", # Do not catch blind exception: `Exception`

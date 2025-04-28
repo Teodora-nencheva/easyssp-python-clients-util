@@ -1,7 +1,9 @@
 name: Ruff and Mypy Checks
 
 on:
-  push:  # Triggers on all branches
+  push:
+    branches:
+      - '**' # Triggers on all branches but not tag push
   pull_request:  # Triggers on all PRs
 
 jobs:

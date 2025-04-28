@@ -11,7 +11,7 @@
 ## Example
 
 ```python
-from easyssp_python_clients_util.models.client_localized_message import ClientLocalizedMessage, LocalizedMessageKey
+from easyssp_utils.models.client_localized_message import ClientLocalizedMessage, LocalizedMessageKey
 
 localized_message_key = LocalizedMessageKey(defaultMessage='Model not found.')
 client_localized_message = ClientLocalizedMessage(key=localized_message_key,

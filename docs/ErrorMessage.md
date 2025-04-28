@@ -12,7 +12,7 @@
 ## Example
 
 ```python
-from easyssp_python_clients_util.models import ErrorMessage
+from easyssp_utils.models import ErrorMessage
 
 error_message = ErrorMessage(code=404, message='Model not found',
                              details='Model with id da0e6281-27a8-4708-8679-1abed8df20f4 not found.')

@@ -24,11 +24,11 @@ from urllib.parse import quote
 from dateutil.parser import parse
 from pydantic import SecretStr
 
-from easyssp_python_clients_util import models
-from easyssp_python_clients_util.client import rest
-from easyssp_python_clients_util.client.api_response import ApiResponse, T as ApiResponseT
-from easyssp_python_clients_util.client.configuration import Configuration
-from easyssp_python_clients_util.client.exceptions import ApiException, ApiValueError
+from easyssp_utils import models
+from easyssp_utils.client import rest
+from easyssp_utils.client.api_response import ApiResponse, T as ApiResponseT
+from easyssp_utils.client.configuration import Configuration
+from easyssp_utils.client.exceptions import ApiException, ApiValueError
 
 RequestSerialized = tuple[str, str, dict[str, str], str | None, list[str]]
 

@@ -21,9 +21,9 @@ cd easyssp-python-clients-util
 pip install -e .
 ```
 
-## 📁 Module Structure
+## 📁 Project Structure
 ```bash
-easyssp_python_cients_util/
+easyssp_utils/
 ├── __init__.py
 ├── client/
 │   ├── __init__.py
@@ -42,7 +42,8 @@ easyssp_python_cients_util/
 ```
 
 ## 🛠️ Requirements
-Python 3.11+
+- Python 3.11+
+- easyssp Pro Edition or Process Edition Account
 
 Install dependencies with:
 ```bash

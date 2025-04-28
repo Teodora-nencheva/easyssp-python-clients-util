@@ -1,7 +1,7 @@
 [project]
 name = "easyssp-utils"
 version = "0.0.24"
-description = "A collection of utility functions and modules for interacting with the easySSP Integration API. This package provides request handling, error management, and other shared components for Python clients. Simplifies the process of integrating with the Integration API and handling common tasks."
+description = "A collection of utility functions for interacting with the easySSP Integration API. This package provides request handling, error management, and other shared components for Python clients. Simplifies the process of integrating with the Integration API and handling common tasks."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]
 authors = [
@@ -43,20 +43,20 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "easyssp_python_clients_util/*",
+    "easyssp_utils/*",
 ]
 exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
 include = [
-    "easyssp_python_clients_util/*",
+    "easyssp_utils/*",
 ]
 exclude = [
 ]
 
 [tool.mypy]
-files = ['easyssp_python_clients_util']
+files = ['easyssp_utils']
 disallow_any_unimported = true
 no_implicit_optional = true
 check_untyped_defs = true

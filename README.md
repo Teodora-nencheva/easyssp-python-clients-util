@@ -1,4 +1,3 @@
-![easyssp-logo](https://raw.githubusercontent.com/Teodora-nencheva/easyssp-python-clients-util/8adbd93dbe43d31034968cb25c897e507624367d/docs/images/easyssp-logo.svg)
 # 🔧 easySSP Python Clients Util
 
 This module provides shared utilities for the Python clients of the easySSP APIs. It contains essential functionality such as HTTP request handling, custom exceptions, logging support, and reusable helpers that streamline the integration with the easySSP APIs.

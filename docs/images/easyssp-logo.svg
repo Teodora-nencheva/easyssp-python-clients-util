@@ -2,7 +2,7 @@
      width="393.335" height="174.367" viewBox="0 0 393.335 174.367">
     <defs>
         <style>
-            .a,.d{fill:none;}.c{fill:LightBlue;}.d{stroke:LightBlue;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}.e{fill:LightBlue;}
+            .a,.d{fill:none;}.c{fill:black;}.d{stroke:black;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}.e{fill:black;}
         </style>
         <clipPath id="a">
             <path class="a" d="M43.86,77.2,53.605,0l77.022,8.695-9.745,77.2Z" transform="translate(-43.86)" />

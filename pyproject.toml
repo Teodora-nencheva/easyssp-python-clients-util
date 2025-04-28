@@ -1,6 +1,6 @@
 [project]
 name = "easyssp-utils"
-version = "0.0.19"
+version = "0.0.20"
 description = "A collection of utility functions and modules for interacting with the easySSP Integration API. This package provides request handling, error management, and other shared components for Python clients. Simplifies the process of integrating with the Integration API and handling common tasks."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]
@@ -24,9 +24,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://www.easy-ssp.com"
-Changelog = "https://github.com/exxcellent/easyssp-python-clients-util/releases"
-Source = "https://github.com/exxcellent/easyssp-python-clients-util"
+"Homepage" = "https://www.easy-ssp.com"
+"Changelog" = "https://github.com/exxcellent/easyssp-python-clients-util/releases"
+"Source" = "https://github.com/exxcellent/easyssp-python-clients-util"
 
 [dependency-groups]
 lint = [

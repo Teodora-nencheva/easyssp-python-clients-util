@@ -3,14 +3,12 @@
 This module provides shared utilities for the Python clients of the easySSP APIs. It contains essential functionality such as HTTP request handling, custom exceptions, logging support, and reusable helpers that streamline the integration with the easySSP APIs.
 
 ## ✨ Features
-
 - ✅ Centralized request handling with retry and error management
 - 🚨 Custom exception classes for clear and consistent error reporting
 - 🧰 Helper utilities to support both API clients
 - 📋 Designed for internal use by the easySSP Python clients
 
 ## 📦 Installation
-
 ```bash
 pip install easyssp-utils
 ```
@@ -24,7 +22,6 @@ pip install -e .
 ```
 
 ## 📁 Module Structure
-
 ```bash
 easyssp_python_cients_util/
 ├── __init__.py

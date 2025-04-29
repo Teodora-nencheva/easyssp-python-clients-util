@@ -23,5 +23,6 @@ client_localized_message_dict = client_localized_message.to_dict()
 # create an instance of ClientLocalizedMessage from a dict
 client_localized_message_from_dict = ClientLocalizedMessage.from_dict(client_localized_message_dict)
 ```
+[[Back to README]](../README.md)
 
 

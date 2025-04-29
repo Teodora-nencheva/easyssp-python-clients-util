@@ -1,6 +1,6 @@
 [project]
 name = "easyssp-utils"
-version = "0.0.26"
+version = "0.0.27"
 description = "A collection of utility functions for interacting with the easySSP Python clients such as request handling and error management."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]

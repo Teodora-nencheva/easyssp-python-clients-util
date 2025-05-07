@@ -1,14 +1,3 @@
-
-"""
-    easySSP Simulation API
-
-    The easySSP Simulation API lets you start and manage simulations in the cloud.   To start a simulation, the user requires sufficient easySSP Simulation Credits.  The total credit cost of a simulation is calculated by the credit cost per minute of the specified hardware multiplied the configured maximum run duration in minutes, and then added to fixed credit cost for each run. Detailed information about the available hardware settings and credit costs can be requested beforehand by the \"/simulation/info\"-Endpoint. When a simulation fails, stops or finishes before the given maximum run duration, the unused credits per minutes are refunded. The fix costs of a simulation are only refunded when an internal error occurs on our side.  This API is only accessible with a valid JTW access token issued by the authentication mechanism of easySSP. See the accompanied authentication documentation for more details.  Additionally, the user can view and manage the simulations started by the Simulation-API in a dedicated UI at [https://www.easy-ssp.com/app/#/simulation-api](https://www.easy-ssp.com/app/#/simulation-api).
-
-    The version of the OpenAPI document: 1.0.0
-    Contact: easy-ssp@exxcellent.de
-"""
-
-
 import copy
 import http.client as httplib
 import logging
@@ -18,6 +7,8 @@ import sys
 from typing import Any, ClassVar, Literal, NotRequired, Self, TypedDict
 
 import urllib3
+
+BASE_PATH = "https://www.easy-ssp.com"
 
 JSON_SCHEMA_VALIDATION_KEYWORDS = {
     "multipleOf", "maximum", "exclusiveMaximum",
@@ -37,7 +28,6 @@ GenericAuthSetting = TypedDict(
     },
 )
 
-
 OAuth2AuthSetting = TypedDict(
     "OAuth2AuthSetting",
     {
@@ -47,7 +37,6 @@ OAuth2AuthSetting = TypedDict(
         "value": str,
     },
 )
-
 
 APIKeyAuthSetting = TypedDict(
     "APIKeyAuthSetting",
@@ -59,7 +48,6 @@ APIKeyAuthSetting = TypedDict(
     },
 )
 
-
 BasicAuthSetting = TypedDict(
     "BasicAuthSetting",
     {
@@ -69,7 +57,6 @@ BasicAuthSetting = TypedDict(
         "value": str | None,
     },
 )
-
 
 BearerFormatAuthSetting = TypedDict(
     "BearerFormatAuthSetting",
@@ -82,7 +69,6 @@ BearerFormatAuthSetting = TypedDict(
     },
 )
 
-
 BearerAuthSetting = TypedDict(
     "BearerAuthSetting",
     {
@@ -92,7 +78,6 @@ BearerAuthSetting = TypedDict(
         "value": str,
     },
 )
-
 
 HTTPSignatureAuthSetting = TypedDict(
     "HTTPSignatureAuthSetting",
@@ -160,27 +145,27 @@ class Configuration:
     _default: ClassVar[Self | None] = None
 
     def __init__(
-        self,
-        host: str | None=None,
-        api_key: dict[str, str] | None=None,
-        api_key_prefix: dict[str, str] | None=None,
-        username: str | None=None,
-        password: str | None=None,
-        access_token: str | None=None,
-        server_index: int | None=None,
-        server_variables: ServerVariablesT | None=None,
-        server_operation_index: dict[int, int] | None=None,
-        server_operation_variables: dict[int, ServerVariablesT] | None=None,
-        ignore_operation_servers: bool=False,
-        ssl_ca_cert: str | None=None,
-        retries: int | None = None,
-        ca_cert_data: str | bytes | None = None,
-        *,
-        debug: bool | None = None,
+            self,
+            host: str | None = None,
+            api_key: dict[str, str] | None = None,
+            api_key_prefix: dict[str, str] | None = None,
+            username: str | None = None,
+            password: str | None = None,
+            access_token: str | None = None,
+            server_index: int | None = None,
+            server_variables: ServerVariablesT | None = None,
+            server_operation_index: dict[int, int] | None = None,
+            server_operation_variables: dict[int, ServerVariablesT] | None = None,
+            ignore_operation_servers: bool = False,
+            ssl_ca_cert: str | None = None,
+            retries: int | None = None,
+            ca_cert_data: str | bytes | None = None,
+            *,
+            debug: bool | None = None,
     ) -> None:
         """Constructor
         """
-        self._base_path = "https://www.easy-ssp.com" if host is None else host
+        self._base_path = BASE_PATH if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -305,7 +290,7 @@ class Configuration:
         """date format
         """
 
-    def __deepcopy__(self, memo:  dict[int, Any]) -> Self:
+    def __deepcopy__(self, memo: dict[int, Any]) -> Self:
         cls = self.__class__
         result = cls.__new__(cls)
         memo[id(self)] = result
@@ -442,7 +427,7 @@ class Configuration:
         self.__logger_format = value
         self.logger_formatter = logging.Formatter(self.__logger_format)
 
-    def get_api_key_with_prefix(self, identifier: str, alias: str | None=None) -> str | None:
+    def get_api_key_with_prefix(self, identifier: str, alias: str | None = None) -> str | None:
         """Gets an API key (with prefix if set).
 
         :param identifier: The identifier of apiKey.
@@ -475,7 +460,7 @@ class Configuration:
             basic_auth=username + ":" + password
         ).get("authorization")
 
-    def auth_settings(self)-> AuthSettings:
+    def auth_settings(self) -> AuthSettings:
         """Gets Auth Settings dict for an api client.
 
         :return: The Auth Settings information dict.
@@ -497,10 +482,10 @@ class Configuration:
 
         :return: The report for debugging.
         """
-        return "Python SDK Debug Report:\n"\
-               f"OS: {sys.platform}\n"\
-               f"Python Version: {sys.version}\n"\
-               "Version of the API: 1.0.0\n"\
+        return "Python SDK Debug Report:\n" \
+               f"OS: {sys.platform}\n" \
+               f"Python Version: {sys.version}\n" \
+               "Version of the API: 1.0.0\n" \
                "SDK Package Version: 1.0.0"
 
     @staticmethod
@@ -511,16 +496,16 @@ class Configuration:
         """
         return [
             {
-                "url": "https://www.easy-ssp.com",
+                "url": BASE_PATH,
                 "description": "No description provided",
             }
         ]
 
     def get_host_from_settings(
-        self,
-        index: int | None,
-        variables: ServerVariablesT | None=None,
-        servers: list[HostSetting] | None=None,
+            self,
+            index: int | None,
+            variables: ServerVariablesT | None = None,
+            servers: list[HostSetting] | None = None,
     ) -> str:
         """Gets host URL based on the index and variables
         :param index: array index of the host settings
@@ -551,7 +536,7 @@ class Configuration:
             if "enum_values" in variable \
                     and used_value not in variable["enum_values"]:
                 raise ValueError(
-                    "The variable `{0}` in the host URL has invalid value " # noqa: UP030, EM103
+                    "The variable `{0}` in the host URL has invalid value "  # noqa: UP030, EM103
                     "{1}. Must be {2}.".format(
                         variable_name, variables[variable_name],
                         variable["enum_values"]))

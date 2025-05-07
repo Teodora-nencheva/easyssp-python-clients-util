@@ -6,10 +6,10 @@ easySSP APIs.
 
 ## ✨ Features
 
+- 📦 Shared core functions for easySSP Python clients
 - ✅ Centralized request handling with retry and error management
-- 🚨 Custom exception classes for clear and consistent error reporting
-- 🧰 Helper utilities to support the API clients
-- 📋 Designed for internal use by the easySSP Python clients
+- 🧰 Utilities for common API-related tasks (e.g., headers, parsing)
+- 🚨Exception classes for consistent and transparent error reporting
 
 ## 📦 Installation
 
@@ -61,7 +61,6 @@ respective client documentation.
 ## 🛠️ Requirements
 
 - Python 3.11+
-- easyssp Pro Edition Account
 
 Install dependencies with:
 

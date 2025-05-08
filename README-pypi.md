@@ -50,13 +50,7 @@ easyssp_utils/
 
 - Python 3.11+
 
-Install dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
-
-or install using uv:
+Install dependencies using uv:
 
 ```bash
 pip install uv

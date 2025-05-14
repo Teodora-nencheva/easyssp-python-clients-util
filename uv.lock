@@ -13,19 +13,19 @@ wheels = [
 
 [[package]]
 name = "easyssp-auth-client"
-version = "0.0.22"
+version = "0.0.23"
 source = { registry = "https://test.pypi.org/simple" }
 dependencies = [
     { name = "urllib3" },
 ]
-sdist = { url = "https://test-files.pythonhosted.org/packages/12/7e/f5c298d06ce425bafdda988c5fe6f6224d4c96746777db6d9f959c511fb3/easyssp_auth_client-0.0.22.tar.gz", hash = "sha256:2ca2d9c4b274825bcb3ca8b64cd837970487a5413e12d1cc89789f6eaa6ec347", size = 5480, upload_time = "2025-05-14T10:55:01.303Z" }
+sdist = { url = "https://test-files.pythonhosted.org/packages/04/20/781bc543d0b0f5186acbe630eeeebfbf46cd5649eba8d6e5eab2dd055c6c/easyssp_auth_client-0.0.23.tar.gz", hash = "sha256:90822610e7cca2bf619458b482e34cf65a22822485bc8aa7a6f5f5190bf09547", size = 5530, upload_time = "2025-05-14T12:22:27.764Z" }
 wheels = [
-    { url = "https://test-files.pythonhosted.org/packages/53/ad/9c987e84859e3fe722023a1e8db940a6efa8ed6c7e6d6b23ef2ed010a7f0/easyssp_auth_client-0.0.22-py3-none-any.whl", hash = "sha256:6aba0104a746e17c17abc4b5bc0d5d6dcd489803523493abc306ab313301aa67", size = 5347, upload_time = "2025-05-14T10:55:00.051Z" },
+    { url = "https://test-files.pythonhosted.org/packages/82/0a/0c47c7f0ed1b85c26de427224092fc07ef89617cc634a8c9562eaa1eac8e/easyssp_auth_client-0.0.23-py3-none-any.whl", hash = "sha256:ce75c856a687a7509e0fed9968e6fd69f10d83db9e0f098b1cd6a4e17f90261e", size = 5405, upload_time = "2025-05-14T12:22:26.711Z" },
 ]
 
 [[package]]
 name = "easyssp-utils"
-version = "0.0.32"
+version = "0.0.33"
 source = { editable = "." }
 dependencies = [
     { name = "easyssp-auth-client" },

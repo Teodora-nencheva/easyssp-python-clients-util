@@ -1,6 +1,6 @@
 [project]
 name = "easyssp-utils"
-version = "0.0.29"
+version = "0.0.30"
 description = "A collection of utilities to streamline interaction with the easySSP APIs."
 repository = "https://github.com/exxcellent/easyssp-python-clients-util"
 keywords = ["easySSP", "python", "client", "utils"]
@@ -12,6 +12,7 @@ license-files = ["LICENSE"]
 readme = "README-pypi.md"
 requires-python = ">=3.11"
 dependencies = [
+    "easyssp-auth-client>=0.0.20",
     "pydantic>=2.11.3",
     "python-dateutil>=2.9.0.post0",
     "types-python-dateutil>=2.9.0.20241206",
@@ -36,6 +37,14 @@ lint = [
 
 [tool.uv]
 default-groups = ["lint"]
+
+# todo remove
+[[tool.uv.index]]
+url = "https://test.pypi.org/simple"
+default = true
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
 
 [build-system]
 requires = ["hatchling"]

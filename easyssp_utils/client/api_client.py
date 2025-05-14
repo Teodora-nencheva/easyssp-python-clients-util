@@ -10,6 +10,7 @@ from typing import Any
 from urllib.parse import quote
 
 from dateutil.parser import parse
+from easyssp_auth.authentication import AuthClient
 from pydantic import SecretStr
 
 from easyssp_utils import models
@@ -53,6 +54,9 @@ class ApiClient:
 
     def __init__(
             self,
+            username: str,
+            password: str,
+            client_id: str,
             user_agent: str,
             configuration=None,
             header_name=None,
@@ -71,6 +75,8 @@ class ApiClient:
         self.cookie = cookie
         # Set the User-Agent.
         self.user_agent = user_agent
+        # Set the Auth Client
+        self.auth_client = AuthClient(username=username, password=password, client_id=client_id)
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):
@@ -94,7 +100,7 @@ class ApiClient:
     _default = None
 
     @classmethod
-    def get_default(cls, user_agent: str):
+    def get_default(cls, username: str, password: str, client_id: str, user_agent: str):
         """Return a new instance of ApiClient.
 
         This method returns a newly created, based on a default constructor,
@@ -105,7 +111,7 @@ class ApiClient:
         :return: The ApiClient object.
         """
         if cls._default is None:
-            cls._default = ApiClient(user_agent=user_agent)
+            cls._default = ApiClient(username=username, password=password, client_id=client_id, user_agent=user_agent)
         return cls._default
 
     @classmethod
@@ -247,6 +253,8 @@ class ApiClient:
         :param _request_timeout: timeout setting for this request.
         :return: RESTResponse
         """
+
+        self.default_headers['Authorization'] = f"Bearer {self.auth_client.get_access_token()}"
 
         # perform request and return response
         response_data = self.rest_client.request(

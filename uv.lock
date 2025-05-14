@@ -25,7 +25,7 @@ wheels = [
 
 [[package]]
 name = "easyssp-utils"
-version = "0.0.30"
+version = "0.0.31"
 source = { editable = "." }
 dependencies = [
     { name = "easyssp-auth-client" },

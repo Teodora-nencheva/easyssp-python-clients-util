@@ -254,7 +254,7 @@ class ApiClient:
         :return: RESTResponse
         """
 
-        self.default_headers['Authorization'] = f"Bearer {self.auth_client.get_access_token()}"
+        header_params['Authorization'] = f"Bearer {self.auth_client.get_access_token()}"
 
         # perform request and return response
         response_data = self.rest_client.request(
